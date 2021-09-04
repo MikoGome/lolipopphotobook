@@ -8,15 +8,17 @@ require("dotenv").config();
 
 const app = express();
 
+mongoose.connect("mongodb+srv://Miko:2182Haruhi@mikocluster.bmr4k.mongodb.net/MikoStory?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true})
+  .then((result) => app.listen(process.env.PORT))
+  .catch((err) => console.log(err));
+
+
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.API_KEY,
   api_secret: process.env.API_SECRET
 });
 
-mongoose.connect("mongodb+srv://Miko:2182Haruhi@mikocluster.bmr4k.mongodb.net/MikoStory?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true})
-  .then((result) => app.listen(process.env.PORT || 3000, "0.0.0.0"))
-  .catch((err) => console.log(err));
 
 
 app.use(express.static("public"));
