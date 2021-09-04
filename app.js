@@ -15,7 +15,7 @@ cloudinary.config({
 });
 
 mongoose.connect("mongodb+srv://Miko:2182Haruhi@mikocluster.bmr4k.mongodb.net/MikoStory?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true})
-  .then((result) => app.listen(process.env.PORT || 3000))
+  .then((result) => app.listen(process.env.PORT))
   .catch((err) => console.log(err));
 
 app.use(express.static("public"));
