@@ -14,9 +14,9 @@ cloudinary.config({
   api_secret: process.env.API_SECRET
 });
 
-mongoose.connect("mongodb+srv://Miko:2182Haruhi@mikocluster.bmr4k.mongodb.net/MikoStory?retryWrites=true&w=majority", {useNewUrlParser: true});
-
-const server = app.listen(process.env.PORT || 3000);
+mongoose.connect("mongodb+srv://Miko:2182Haruhi@mikocluster.bmr4k.mongodb.net/MikoStory?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true})
+  .then((result) => app.listen(process.env.PORT || 3000))
+  .catch((err) => console.log(err));
 
 app.use(express.static("public"));
 app.use(fileUpload());
