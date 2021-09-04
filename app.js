@@ -30,7 +30,7 @@ let blogslength;
 app.get("/", (req, res) => {
   let blogs = [];
   BlogPost.find({}, (err, result) => {
-    //console.log(err, result);
+    console.log(err, result);
     for(let i in result) {
       blogs.push(result[i]);
     }
@@ -78,6 +78,7 @@ app.post("/pictureupload", (req, res) => {
 
 app.get("/pictures/:title", (req, res, next2) => {
   BlogPost.find({}, (err, result) => {
+    console.log(err, result);
     blogslength = result.length;
     let title = req.params.title;
     if(title < 1100 || title >= 1100 + blogslength){
@@ -92,6 +93,7 @@ app.get("/pictures/:title", (req, res, next2) => {
       next = "DNE";
     }
     BlogPost.find({title: title}, (err, result) => {
+      console.log(err, result);
       res.render("picture.ejs", {title: "Picture", picture: result[0], next: next.toString(), previous: previous.toString()} );
     });
   });
