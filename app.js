@@ -16,7 +16,7 @@ cloudinary.config({
   api_secret: process.env.API_SECRET
 });
 
-mongoose.connect("mongodb+srv://Miko:2182Haruhi@mikocluster.bmr4k.mongodb.net/MikoStory?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true});
 
 
 app.use(express.static("public"));
