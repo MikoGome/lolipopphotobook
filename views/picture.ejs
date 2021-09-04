@@ -1,0 +1,31 @@
+<%- include("./partials/head.ejs")%>
+    <%- include("./partials/nav.ejs") %>
+    <main>
+      <div class="solo_picture_container">
+        <figure class="solo_picture">
+            <img src="<%= picture.image %>">
+        </figure>
+      </div>
+      <figcaption class="solo_caption">
+        <h3><%= picture.date.toDateString() %></h3>
+      </figcaption>
+      <a id="linkPrevious" data-previous=<%=previous%> href="/pictures/<%=previous%>"><button id="Previous" class="button">Previous</button></a>
+      <a id="linkNext" data-next=<%=next%> href="/pictures/<%=next%>"><button id="Next" class="button">Next</button></a>
+    </main>
+    <script>
+      console.log(document.getElementById("linkPrevious").dataset.previous, document.getElementById("linkNext").dataset.next );
+      if (document.getElementById("linkPrevious").dataset.previous == "DNE") {
+        document.getElementById("Previous").style.display = "none";
+      }
+      if(document.getElementById("linkNext").dataset.next == "DNE") {
+        document.getElementById("Next").style.display = "none";
+      }
+      if(document.getElementById("Next").style.display != "none") {
+        document.getElementsByTagName("img")[0].style.cursor = "pointer";
+        document.getElementsByTagName("img")[0].addEventListener("click", () => {
+          location.href = `/pictures/${document.getElementById("linkNext").dataset.next}`;
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<%- include("./partials/head.ejs") %>
+    <%- include("./partials/nav.ejs") %>
+    <main>
+      <form action="/pictureupload" id="form" class="blocky" method="POST" enctype="multipart/form-data">
+        <input type="text" id="title" class="blocky" name="title" placeholder="Picture Number...">
+          <input type="file" id="file" class="blocky" name="picture" accept="image/*" required>
+        <input type="submit" id="submit" class="blocky" value="Upload" disabled>
+    </main>
+    <script>
+      document.getElementById("file").addEventListener("input", () => {
+        setTimeout( () => {
+          let password = prompt("What is the password?");
+          if(password == "2182Haruhi") {
+            document.getElementById("submit").disabled = false;
+            counter = 0;
+          }
+          else {
+            document.getElementById("file").value = null;
+          }
+        }, 100);
+      });
+      let counter = 0;
+      document.getElementById("submit").addEventListener("click", () => {
+        if(counter > 0){
+        document.getElementById("submit").disabled = true;
+        document.getElementById("file").disabled = true;
+        }
+        counter++;
+      });
+    </script>
+  </body>
+</html>
