@@ -8,7 +8,7 @@ require("dotenv").config();
 
 const app = express();
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT, "0.0.0.0");
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
