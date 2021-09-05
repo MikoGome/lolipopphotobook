@@ -67,7 +67,7 @@ nav>ul>li>a:hover {
   width: 100%;
   height: 150px;
   background-size: cover;
-  background-position: center 30%;
+  background-position: center 25%;
   transition: filter 0.5s ease-out, transform 0.5s ease-out, height 0.5s ease-out;
   overflow:hidden;
 
