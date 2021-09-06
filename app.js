@@ -85,7 +85,7 @@ app.get("/pictures/:title", (req, res, next2) => {
     let title = req.params.title;
     /*if(title < 1100 || title >= 1100 + blogslength){
       next2();
-    }*?
+    }*/
     let next = +title + 1;
     let previous = +title - 1;
     if(previous < 1100) {
