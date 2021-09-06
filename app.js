@@ -80,14 +80,9 @@ app.post("/pictureupload", (req, res) => {
 
 app.get("/pictures/:title", (req, res, next2) => {
   BlogPost.find({}, (err, result) => {
-    if(err) {
-        res.status(404).render("404.ejs", {title:"Not Found"} );
-    }
     blogslength = result.length;
     let title = req.params.title;
-    /*if(title < 1100 || title >= 1100 + blogslength){
-      next2();
-    }*/
+    if(title >= 1100 && title < 1100 + blogslength){
     let next = +title + 1;
     let previous = +title - 1;
     if(previous < 1100) {
@@ -102,6 +97,8 @@ app.get("/pictures/:title", (req, res, next2) => {
       }
       res.render("picture.ejs", {title: "Picture", picture: result[0], next: next.toString(), previous: previous.toString()} );
     });
+    }
+    else { res.status(404).render("404.ejs", {title:"Not Found"} );
   });
 });
 
