@@ -95,7 +95,9 @@ app.get("/pictures/:title", (req, res, next2) => {
       next = "DNE";
     }
     BlogPost.find({title: title}, (err, result) => {
-      console.log(err, result);
+      if(err) {
+        res.status(404).render("404.ejs", {title:"Not Found"} );
+      }
       res.render("picture.ejs", {title: "Picture", picture: result[0], next: next.toString(), previous: previous.toString()} );
     });
   });
