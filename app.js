@@ -80,7 +80,9 @@ app.post("/pictureupload", (req, res) => {
 
 app.get("/pictures/:title", (req, res, next2) => {
   BlogPost.find({}, (err, result) => {
-    console.log(err, result);
+    if(err) {
+        res.status(404).render("404.ejs", {title:"Not Found"} );
+    }
     blogslength = result.length;
     let title = req.params.title;
     /*if(title < 1100 || title >= 1100 + blogslength){
