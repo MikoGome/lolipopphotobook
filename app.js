@@ -81,8 +81,8 @@ app.post("/pictureupload", (req, res) => {
 app.get("/pictures/:title", (req, res, next2) => {
   BlogPost.find({}, (err, result) => {
     blogslength = result.length;
-    let title = req.params.title;
-    if(Math.floor(+title) >= 1100 && Math.floor(+title) < 1100 + blogslength){
+    let title = Math.floor(+req.params.title).toString();
+    if(title >= 1100 && title < 1100 + blogslength){
       let next = +title + 1;
       let previous = +title - 1;
       if(previous < 1100) {
