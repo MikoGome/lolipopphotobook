@@ -183,6 +183,7 @@ nav>ul>li>a:hover {
   border-radius: 20px;
   text-align: center;
   min-height: 38.05rem;
+  margin-bottom: 1rem;
 }
 
 #article > p {
