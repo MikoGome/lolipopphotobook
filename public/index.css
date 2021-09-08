@@ -198,6 +198,11 @@ nav>ul>li>a:hover {
   height: 38.05rem;
 }
 
+#time {
+  padding-left: 1vw;
+  padding-bottom: 1vh;
+}
+
 .button {
   background-color: rgba(40, 40, 40, 0.5);
   position: fixed;
