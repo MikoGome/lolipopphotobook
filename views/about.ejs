@@ -24,9 +24,18 @@
           case 6:
           case 7:
           case 9:
-          case 11:
             if(todayDate.getDate() >= 18) {
               month = todayDate.getMonth() + 1;
+              day = todayDate.getDate() - 18;
+            }
+            else if(todayDate.getDate() < 18) {
+              month = todayDate.getMonth();
+              day = todayDate.getDate() + 12;
+            }
+            break;
+          case 11:
+            if(todayDate.getDate() >= 18) {
+              month = todayDate.getMonth() - 11;
               day = todayDate.getDate() - 18;
             }
             else if(todayDate.getDate() < 18) {
