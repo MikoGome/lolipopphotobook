@@ -18,8 +18,7 @@
         let duration = todayDate.getTime() - meetingDate;
         let day = duration/1000/60/60/24;
         let year = day/365;
-          switch(todayDate.getMonth()) {
-          case 0:
+        switch(todayDate.getMonth()) {
           case 2:
           case 4:
           case 6:
@@ -43,8 +42,12 @@
           else if(todayDate.getDate() < 18) {
             month = todayDate.getMonth();
             day = todayDate.getDate() + 10;
+            if(todayDate.getFullYear() % 4 == 0) {
+              day = todayDate.getDate() + 11;
+            }
           }
           break;
+         case 0:
          case 1:
          case 5:
          case 8:
