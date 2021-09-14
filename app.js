@@ -8,7 +8,7 @@ require("dotenv").config();
 
 const app = express();
 
-mongoose.connect("mongodb+srv://Miko:2182Haruhi@mikocluster.bmr4k.mongodb.net/MikoStory?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true})
   .then((result) => app.listen(process.env.PORT))
   .catch((err) => console.log(err));
 
